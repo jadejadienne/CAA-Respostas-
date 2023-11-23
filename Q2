@@ -1,0 +1,15 @@
+2. Suponha que o vetor v [1..n] é um heap-max.
+O seguinte fragmento de código rearranja o
+vetor em ordem crescente ?
+
+for ( m =n; m>=2; m--){
+int x = v[1];
+for (j=1; j < m; ++j) v[j] = v[j+1];
+v[m] =x;
+}
+
+#RESPOSTAS
+
+Não, o trecho de código fornecido não rearranja o vetor em ordem crescente. Ele parece estar extraindo repetidamente o maior elemento do heap-max e movendo-o para o final do vetor.
+Isso resulta em uma ordenação decrescente do final para o início do vetor. Para alcançar uma ordenação crescente, seria necessário implementar um algoritmo de ordenação, como o algoritmo 
+de ordenação por seleção, bolha ou inserção, que não está presente no trecho de código fornecido.
