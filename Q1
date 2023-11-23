@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+void heapify(int arr[], int n, int i) {
+    int ordenar = i;
+    int Rec = 2 * i + 1;
+    int ver = 2 * i + 2;
+
+    if (Rec < n && arr[Rec] > arr[ordenar]) {
+        ordenar = Rec;
+    }
+
+    if ( ver < n && arr[Rec] > arr[ordenar]) {
+        ordenar = Rec;
+    }
+
+    if (ordenar != i) {
+        int temp = arr[i];
+        arr[i] = arr[ordenar];
+        arr[ordenar] = temp;
+        heapify(arr, n, ordenar);
+    }
+}
+
+void heapSort(int arr[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+
+    for (int i = n - 1; i > 0; i--) {
+        int temp = arr[i];
+        arr[i] = arr[0];
+        arr[0] = temp;
+        heapify(arr, i, 0);
+    }
+}
+
+int main() {
+    int vetor[] = {16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4};
+    int n = sizeof(vetor) / sizeof(vetor[0]);
+
+    heapSort(vetor, n);
+
+    printf("Vetor ordenado:");
+    for (int i = 0; i < n; i++) {
+        printf(" %d", vetor[i]);
+    }
+
+    return 0;
+}
